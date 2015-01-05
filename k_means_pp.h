@@ -15,6 +15,7 @@
 
 int ReadDataFromFile(std::string filename, 
 					 std::vector< std::vector<double> > &data,
+					 int dim,
 					 std::string splitchar=",");
 
 

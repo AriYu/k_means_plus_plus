@@ -133,11 +133,12 @@ void KmeansPlus::Clustering(Cluster &result_clusters)
 
 int ReadDataFromFile(string filename, 
 					 vector< vector<double> > &data, 
+					 int dim,
 					 string splitchar)
 {
   ifstream infile; 
   string tmpdata;
-  vector<double> point;
+  vector<double> point(dim);
   vector<string> chardata;
 
   infile.open(filename.c_str());
@@ -148,11 +149,8 @@ int ReadDataFromFile(string filename,
 	}
   while(getline(infile, tmpdata)){
 	boost::algorithm::split(chardata, tmpdata, boost::algorithm::is_any_of(splitchar.c_str()));
-	if(point.size() != chardata.size()){
-	  point.resize(chardata.size());
-	}
-	for(int i = 0; i < (int)chardata.size(); i++){
-	  point[i] = stof(chardata[i]);
+	for(int i = 0; i < dim; i++){
+	  point[i] = stod(chardata[i]);
 	}
 	data.push_back(point);
   }
