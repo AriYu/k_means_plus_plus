@@ -71,7 +71,7 @@ void KmeansPlus::UpdateCentroid()
 	for(int j = 0; j < dim_; j++){
 	  centroid[j] = 0;
 	}
-	cout << "cluster[" << i << "], size : " << cluster_.clusters[i].size() << endl;
+	//cout << "cluster[" << i << "], size : " << cluster_.clusters[i].size() << endl;
 	for(int j = 0; j < (int)cluster_.clusters[i].size(); j++){
 	  for(int k = 0; k < dim_; k++){
 		centroid[k] += points_[cluster_.clusters[i][j]][k];
@@ -123,11 +123,11 @@ void KmeansPlus::Clustering(Cluster &result_clusters)
 	  if( sum == 0.0){
 	  	flag = false;
 	  }else{
-		cout << "sum : " << sum << endl;
+		//cout << "sum : " << sum << endl;
 	  }
 	}
   result_clusters = cluster_;
-  cout << "iteration : " << step << endl;
+  //cout << "iteration : " << step << endl;
 }
 
 
